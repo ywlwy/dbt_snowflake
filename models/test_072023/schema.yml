@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: One record per customer
+    columns:
+      - name: id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    description: Order record 
+    columns:
+      - name: id
+        description: Primary key
+        tests:
+          - unique
+          - not_null
+
+  - name: customer_order
+    description: customer order monthly summary
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - user_id
+            - month
+            - status
