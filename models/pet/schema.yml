@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: pet_info
+    description: One record per pet
+    columns:
+      - name: name
+        description: pet's name
+        tests:
+          - not_null
